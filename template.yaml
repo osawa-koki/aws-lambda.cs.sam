@@ -6,19 +6,21 @@ Description: >
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
   Function:
-    Timeout: 25
+    Timeout: 30
     MemorySize: 128
 
 Resources:
-  HelloWorldFunction:
+  HelloGet:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
       PackageType: Image
+      ImageConfig:
+        Command: ["HelloWorld::HelloWorld.Function::HelloGet"]
       Events:
         HelloWorld:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
           Properties:
-            Path: /hello
+            Path: /
             Method: get
     Metadata:
       DockerTag: dotnet6-v1
@@ -26,3 +28,58 @@ Resources:
       Dockerfile: Dockerfile
       DockerBuildArgs:
         SAM_BUILD_MODE: run
+  HelloPost:
+    Type: AWS::Serverless::Function
+    Properties:
+      PackageType: Image
+      ImageConfig:
+        Command: ["HelloWorld::HelloWorld.Function::HelloPost"]
+      Events:
+        HelloWorld:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /
+            Method: post
+    Metadata:
+      DockerTag: dotnet6-v1
+      DockerContext: ./src
+      Dockerfile: Dockerfile
+      DockerBuildArgs:
+        SAM_BUILD_MODE: run
+  HelloPut:
+    Type: AWS::Serverless::Function
+    Properties:
+      PackageType: Image
+      ImageConfig:
+        Command: ["HelloWorld::HelloWorld.Function::HelloPut"]
+      Events:
+        HelloWorld:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /
+            Method: put
+    Metadata:
+      DockerTag: dotnet6-v1
+      DockerContext: ./src
+      Dockerfile: Dockerfile
+      DockerBuildArgs:
+        SAM_BUILD_MODE: run
+  HelloDelete:
+    Type: AWS::Serverless::Function
+    Properties:
+      PackageType: Image
+      ImageConfig:
+        Command: ["HelloWorld::HelloWorld.Function::HelloDelete"]
+      Events:
+        HelloWorld:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /
+            Method: delete
+    Metadata:
+      DockerTag: dotnet6-v1
+      DockerContext: ./src
+      Dockerfile: Dockerfile
+      DockerBuildArgs:
+        SAM_BUILD_MODE: run
+

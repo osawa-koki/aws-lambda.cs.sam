@@ -3,6 +3,20 @@
     {
       "type": "aws-sam",
       "request": "direct-invoke",
+      "name": "aws-lambda.cs.sam:HelloPut",
+      "invokeTarget": {
+        "target": "template",
+        "templatePath": "${workspaceFolder}/template.yaml",
+        "logicalId": "HelloPut"
+      },
+      "lambda": {
+        "payload": {},
+        "environmentVariables": {}
+      }
+    },
+    {
+      "type": "aws-sam",
+      "request": "direct-invoke",
       "name": "aws-lambda-cs-sam:HelloWorldFunction",
       "invokeTarget": {
         "target": "template",
