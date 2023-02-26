@@ -19,7 +19,7 @@ Resources:
         Command: ["HelloWorld::HelloWorld.Function::HelloGet"]
       Events:
         HelloWorld:
-          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Type: Api
           Properties:
             Path: /
             Method: get
@@ -38,7 +38,7 @@ Resources:
         Command: ["HelloWorld::HelloWorld.Function::HelloPost"]
       Events:
         HelloWorld:
-          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Type: Api
           Properties:
             Path: /
             Method: post
@@ -57,7 +57,7 @@ Resources:
         Command: ["HelloWorld::HelloWorld.Function::HelloPut"]
       Events:
         HelloWorld:
-          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Type: Api
           Properties:
             Path: /
             Method: put
@@ -76,7 +76,7 @@ Resources:
         Command: ["HelloWorld::HelloWorld.Function::HelloDelete"]
       Events:
         HelloWorld:
-          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Type: Api
           Properties:
             Path: /
             Method: delete
@@ -86,4 +86,3 @@ Resources:
       Dockerfile: Dockerfile
       DockerBuildArgs:
         SAM_BUILD_MODE: run
-
