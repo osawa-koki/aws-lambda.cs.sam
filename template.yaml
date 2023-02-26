@@ -22,7 +22,7 @@ Resources:
             Method: get
     Metadata:
       DockerTag: dotnet6-v1
-      DockerContext: ./src/HelloWorld
+      DockerContext: ./src
       Dockerfile: Dockerfile
       DockerBuildArgs:
         SAM_BUILD_MODE: run
